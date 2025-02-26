@@ -1,6 +1,10 @@
 import { Button } from "primereact/button";
 
+import { useHistory } from "react-router-dom";
+
 function Home() {
+  const history = useHistory();
+
   return (
     <div className="w-full md:w-5 mx-auto text-center ">
       <h1 className="text-primary">Welcome</h1>
@@ -21,6 +25,7 @@ function Home() {
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
+          history.push("/products");
         }}
       />
     </div>

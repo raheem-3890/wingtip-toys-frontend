@@ -51,7 +51,7 @@ function Navbar() {
             }}
           >
             <img
-              src="../assets/logo-white-transparent-1.png"
+              src={"./assets/logo-white-transparent-1.png"}
               width="100%"
               className="logo-scale block md:absolute md:top-0 -m-1"
             ></img>

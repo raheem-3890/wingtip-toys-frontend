@@ -39,7 +39,7 @@ const ProductDetails = () => {
       <div className="flex gap-2">
         <div>
           <img
-            src={`${process.env.PUBLIC_URL}/assets/Catalog/images/${product.imagePath}`}
+            src={`./assets/Catalog/Images/${product.imagePath}`}
             alt={product.productName}
             style={{ border: "solid", height: "300px" }}
             width="100%"
