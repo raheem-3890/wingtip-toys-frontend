@@ -1,12 +1,35 @@
 // src/components/Navbar.js
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+
 import "./Navbar.css"; // Import a CSS file for styling
+
+import { useAtom } from "jotai";
+import {
+  catagoryList,
+  filteredProducts,
+  productListData,
+} from "../state/state";
 
 function Navbar() {
   const history = useHistory();
   const location = useLocation();
+
+  const [products, setProducts] = useAtom(filteredProducts);
+
+  const [totalCartCount, setAddCartCount] = useState(null);
+
+  useEffect(() => {
+    const addCartCount = products.reduce((count, product) => {
+      if (product.quntity) {
+        count += product.quntity;
+      }
+      return count;
+    }, 0);
+
+    setAddCartCount(addCartCount);
+  }, [products]);
 
   const handleNavigation = (path) => {
     history.push(path);
@@ -21,7 +44,7 @@ function Navbar() {
       <div className="flex align-items-center">
         <div className="w-10rem">
           <a
-            className="no-underline text-white text-lg font-semibold block p-3 relative"
+            className="no-underline text-white text-lg font-semibold block p-3 relative cursor-pointer"
             onClick={(e) => {
               e.preventDefault();
               handleNavigation("/");
@@ -41,6 +64,10 @@ function Navbar() {
               className={`no-underline text-white block p-3 hover:bg-primary-600 ${getLinkActiveClass(
                 "/home"
               )}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation("/home");
+              }}
             >
               Home
             </a>
@@ -51,6 +78,10 @@ function Navbar() {
               className={`no-underline text-white block p-3 hover:bg-primary-600 ${getLinkActiveClass(
                 "/about"
               )}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation("/about");
+              }}
             >
               About
             </a>
@@ -61,6 +92,10 @@ function Navbar() {
               className={`no-underline text-white block p-3 hover:bg-primary-600 ${getLinkActiveClass(
                 "/contact"
               )}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation("/contact");
+              }}
             >
               Contact
             </a>
@@ -84,7 +119,7 @@ function Navbar() {
               href="#"
               className="no-underline text-white block p-3 hover:bg-primary-600"
             >
-              Cart (0)
+              Cart ({totalCartCount})
             </a>
           </li>
         </ul>

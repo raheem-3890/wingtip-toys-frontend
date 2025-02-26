@@ -6,14 +6,19 @@ import { useHistory } from "react-router-dom";
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
+import { useAtom } from "jotai";
+import {
+  catagoryList,
+  filteredProducts,
+  productListData,
+} from "../state/state";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [productList, setProductList] = useState([]);
-  const [categoryList, setCategoryList] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [products, setProducts] = useAtom(filteredProducts);
+  const [productList, setProductList] = useAtom(productListData);
+  const [categoryList, setCategoryList] = useAtom(catagoryList);
 
-  const [addCart, setAddCart] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const history = useHistory();
 
@@ -230,6 +235,17 @@ const ProductList = () => {
         return p;
       });
 
+      return updatedProd;
+    });
+
+    setProductList((products) => {
+      const updatedProd = products.map((p) => {
+        if (p.productID === newProduct.productID) {
+          return newProduct;
+        }
+        return p;
+      });
+
       console.log("updatedProd", updatedProd);
       return updatedProd;
     });
@@ -280,6 +296,7 @@ const ProductList = () => {
                       className="w-full"
                       onClick={(e) => {
                         e.preventDefault();
+                        e.stopPropagation();
                         addToCart(product);
                       }}
                     />
@@ -287,9 +304,9 @@ const ProductList = () => {
                 </div>
               }
               className="w-full"
-              onClick={() =>
-                history.push("/product-details/" + product.productID)
-              }
+              onClick={() => {
+                history.push("/product-details/" + product.productID);
+              }}
             ></Card>
           </div>
         ))}
