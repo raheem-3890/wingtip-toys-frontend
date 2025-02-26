@@ -10,7 +10,7 @@
 //   </React.StrictMode>
 // );
 
-import "primereact/resources/themes/saga-blue/theme.css"; // Choose a theme or use your own
+import "primereact/resources/themes/md-light-indigo/theme.css"; // Choose a theme or use your own
 import "primereact/resources/primereact.min.css";
 import "primeflex/primeflex.css";
 

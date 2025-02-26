@@ -1,29 +1,3 @@
-/* .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-  }
-
-  .navbar-logo a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.5em;
-  }
-
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-
-  .navbar-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1em;
-  }
-
-  .navbar-links a:hover {
-    text-decoration: underline;
-  } */
+.logo-scale{
+  transform: scale(1);
+}

@@ -1,3 +1,12 @@
 body{
     margin: 0;
 }
+
+@media screen and (min-width: 1729px) {
+    .App {
+      width: 1504px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+  

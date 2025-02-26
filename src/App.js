@@ -9,11 +9,12 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
-      <Navbar />
       <Router>
-        <div className="App">
+        <Navbar />
+        <div className="App p-3">
           <Switch>
             <Route path="/" exact component={ProductList} />
+            <Route path="/products" component={ProductList} />
             <Route
               path="/product-details/:productId"
               component={ProductDetails}
