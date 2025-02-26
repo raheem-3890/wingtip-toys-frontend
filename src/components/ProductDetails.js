@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-import { Button } from "primereact/button";
+import { InputNumber } from "primereact/inputnumber";
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -189,32 +189,35 @@ const ProductDetails = () => {
           />
         </div>
 
-        <div>
-          <div className="mb-2">
-            <h4 className="m-0">Description:</h4>
-            <p>{product.description}</p>
+        <div className="flex-column">
+          <div className="mb-3">
+            <div className="mb-2">
+              <h4 className="m-0">Description:</h4>
+              <p>{product.description}</p>
+            </div>
+
+            <div className="flex gap-2">
+              <div className="font-semibold">Price:</div>
+              <div>${product.unitPrice}</div>
+            </div>
+
+            <div className="flex gap-2">
+              <div className="font-semibold">Product Number:</div>
+              <div>{product.productID}</div>
+            </div>
           </div>
 
           <div className="flex gap-2">
-            <div className="font-semibold">Price:</div>
-            <div>${product.unitPrice}</div>
-          </div>
-
-          <div className="flex gap-2">
-            <div className="font-semibold">Product Number:</div>
-            <div>{product.productID}</div>
-          </div>
-
-          <div>
-            <Button
-              label="Add to Cart"
-              rounded
-              size="small"
-              className="w-full"
-              onClick={(e) => {
-                e.preventDefault();
-                addToCart(product);
-              }}
+            <p>Quantity </p>
+            <InputNumber
+              value={1}
+              onValueChange={(e) => {}}
+              showButtons
+              buttonLayout="horizontal"
+              step={1}
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              size="1"
             />
           </div>
         </div>
