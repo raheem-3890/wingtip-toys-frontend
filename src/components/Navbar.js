@@ -10,6 +10,7 @@ import {
   catagoryList,
   filteredProducts,
   productListData,
+  cartItemsData,
 } from "../state/state";
 
 function Navbar() {
@@ -19,17 +20,19 @@ function Navbar() {
   const [products, setProducts] = useAtom(filteredProducts);
 
   const [totalCartCount, setAddCartCount] = useState(null);
+  const [productList, setProductList] = useAtom(productListData);
 
   useEffect(() => {
-    const addCartCount = products.reduce((count, product) => {
+    const addCartCount = productList.reduce((count, product) => {
       if (product.quntity) {
         count += product.quntity;
       }
       return count;
     }, 0);
+    console.log("Navbar", addCartCount);
 
-    setAddCartCount(addCartCount);
-  }, [products]);
+    setAddCartCount(addCartCount || 0);
+  }, [products, productList]);
 
   const handleNavigation = (path) => {
     history.push(path);
@@ -117,7 +120,13 @@ function Navbar() {
           <li className="list-none">
             <a
               href="#"
-              className="no-underline text-white block p-3 hover:bg-primary-600"
+              className={`no-underline text-white block p-3 hover:bg-primary-600 ${getLinkActiveClass(
+                "/shopping-cart"
+              )}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation("/shopping-cart");
+              }}
             >
               Cart ({totalCartCount})
             </a>
