@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/wingtip-toys-frontend/static/css/main.5b05bdbf.css",
-    "main.js": "/wingtip-toys-frontend/static/js/main.3d589489.js",
+    "main.js": "/wingtip-toys-frontend/static/js/main.9c6981a4.js",
     "static/media/primeicons.svg": "/wingtip-toys-frontend/static/media/primeicons.6ed59f962963a4a73af2.svg",
     "static/media/primeicons.eot": "/wingtip-toys-frontend/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
     "static/media/primeicons.woff": "/wingtip-toys-frontend/static/media/primeicons.8931fda1930c3bd21e96.woff",
@@ -15,10 +15,10 @@
     "static/media/roboto-v20-latin-ext_latin-regular.woff2": "/wingtip-toys-frontend/static/media/roboto-v20-latin-ext_latin-regular.5cb5c8f08bb4e6cb64c3.woff2",
     "index.html": "/wingtip-toys-frontend/index.html",
     "main.5b05bdbf.css.map": "/wingtip-toys-frontend/static/css/main.5b05bdbf.css.map",
-    "main.3d589489.js.map": "/wingtip-toys-frontend/static/js/main.3d589489.js.map"
+    "main.9c6981a4.js.map": "/wingtip-toys-frontend/static/js/main.9c6981a4.js.map"
   },
   "entrypoints": [
     "static/css/main.5b05bdbf.css",
-    "static/js/main.3d589489.js"
+    "static/js/main.9c6981a4.js"
   ]
 }
